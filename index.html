@@ -8,70 +8,58 @@
     <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/akalanka929-eng/pay-summary-repo/main/Def%2006.ico">
     
     <style>
-        /* මුළු පිටුවම Dark Mode කිරීම */
         body, html { 
             margin: 0; 
             padding: 0; 
             height: 100%; 
             width: 100%;
             overflow: hidden; 
-            background-color: #121212; /* Dark background */
-            display: flex;
-            flex-direction: column; /* Column එකක් ලෙස ඉහළ සිට පහළට */
-            font-family: Arial, sans-serif;
+            display: flex; /* පැත්තකින් පෙන්වීම සඳහා flex භාවිතා කළා */
         }
 
-        /* ඉහළ ඇති පින්තූරය පෙන්වන කොටස */
-        .header-image {
-            width: 100%;
-            height: 250px; /* පින්තූරය පෙන්වන ප්‍රමාණය ඔබට අවශ්‍ය පරිදි වෙනස් කරන්න */
-            background-color: #1a1a1a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 3px solid #333; /* යටින් ඉරක් */
-            padding: 10px;
-            box-sizing: border-bottom;
-        }
-
-        .header-image img {
-            max-width: 100%;
-            height: 100%;
-            object-fit: contain; /* පින්තූරයේ අනුපාතය ආරක්ෂා කරගනී */
-        }
-
-        /* පහළ ඇති Web App එක */
+        /* වම් පස ඇති Web App එක */
         .container {
             flex: 1; /* ඉතිරි ඉඩ ප්‍රමාණය සම්පූර්ණයෙන් ගනී */
-            height: calc(100vh - 250px); /* 100vh - පින්තූරයේ උස */
-            background-color: #1e1e1e;
+            height: 100vh;
         }
 
         iframe { 
             width: 100%; 
             height: 100%; 
             border: none; 
-            background-color: transparent; /* Web App එක පාරදෘශ්‍ය ලෙස පෙන්වීමට */
         }
 
-        /* Dark Mode Header එකක් (විකල්ප) - ඔබට අවශ්‍ය නම් පාවිච්චි කරන්න */
-        .app-title {
-            color: #ffffff;
-            font-size: 20px;
-            text-align: center;
-            margin: 5px 0;
+        /* දකුණු පස ඇති පින්තූරය */
+        .side-image {
+            width: 300px; /* පින්තූරයේ පළල ඔබට අවශ්‍ය පරිදි වෙනස් කරන්න */
+            height: 100vh;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-left: 2px solid #ddd;
         }
 
+        .side-image img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Mobile දුරකථන වලදී පින්තූරය සැඟවීමට (ඉඩ මදි නිසා) */
+        @media (max-width: 768px) {
+            .side-image { display: none; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="header-image">
-        <img src="https://raw.githubusercontent.com/akalanka929-eng/pay-summary-repo/main/Gemini_Generated_Image_3zfsc13zfsc13zfs.png" alt="Header Image">
-    </div>
-
     <div class="container">
         <iframe src="https://script.google.com/macros/s/AKfycbwcWlsSZ0rHnVbOPq6RUnDl_FGNihr_6Y7aZw-M12VxQQq8sDtzEnuFso0DvosnqPO4/exec"></iframe>
+    </div>
+
+    <div class="side-image">
+        <img src="https://raw.githubusercontent.com/akalanka929-eng/pay-summary-repo/main/Gemini_Generated_Image_3zfsc13zfsc13zfs.png" alt="Side Image">
     </div>
 
 </body>
