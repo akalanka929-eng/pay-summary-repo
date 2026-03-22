@@ -8,45 +8,54 @@
     <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/akalanka929-eng/pay-summary-repo/main/Def%2006.ico">
     
     <style>
+        /* මුළු පිටුවම අඳුරු වර්ණයට හැරවීම */
         body, html { 
             margin: 0; 
             padding: 0; 
             height: 100%; 
             width: 100%;
             overflow: hidden; 
-            display: flex; /* පැත්තකින් පෙන්වීම සඳහා flex භාවිතා කළා */
+            display: flex;
+            background-color: #121212; /* Dark Mode Background */
+            color: #ffffff;
         }
 
         /* වම් පස ඇති Web App එක */
         .container {
-            flex: 1; /* ඉතිරි ඉඩ ප්‍රමාණය සම්පූර්ණයෙන් ගනී */
+            flex: 1;
             height: 100vh;
+            background-color: #121212;
         }
 
         iframe { 
             width: 100%; 
             height: 100%; 
-            border: none; 
+            border: none;
+            /* Iframe එකේ background එක dark වීමට නම් script එක ඇතුළත ද වෙනස් කළ යුතුය */
         }
 
-        /* දකුණු පස ඇති පින්තූරය */
+        /* දකුණු පස ඇති පින්තූර කොටස */
         .side-image {
-            width: 300px; /* පින්තූරයේ පළල ඔබට අවශ්‍ය පරිදි වෙනස් කරන්න */
+            width: 300px; 
             height: 100vh;
-            background-color: #f4f4f4;
+            background-color: #1a1a1a; /* මඳක් ලා අඳුරු වර්ණයක් */
             display: flex;
             align-items: center;
             justify-content: center;
-            border-left: 2px solid #ddd;
+            border-left: 1px solid #333; /* පසෙකින් ඇති ඉර අඳුරු වර්ණයෙන් */
+            padding: 15px;
+            box-sizing: border-box;
         }
 
         .side-image img {
             max-width: 100%;
             height: auto;
             object-fit: contain;
+            /* පින්තූරයට අලංකාරයක් එක් කිරීමට කුඩා Shadow එකක් */
+            filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.5));
         }
 
-        /* Mobile දුරකථන වලදී පින්තූරය සැඟවීමට (ඉඩ මදි නිසා) */
+        /* Mobile දුරකථන වලදී */
         @media (max-width: 768px) {
             .side-image { display: none; }
         }
