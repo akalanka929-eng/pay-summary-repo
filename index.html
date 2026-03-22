@@ -1,16 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="si">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ElitePay</title>
     
     <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/akalanka929-eng/pay-summary-repo/main/Def%2006.ico">
     
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
-        iframe { width: 100%; height: 100vh; border: none; }
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            height: 100%; 
+            width: 100%;
+            overflow: hidden; 
+            display: flex; /* පැත්තකින් පෙන්වීම සඳහා flex භාවිතා කළා */
+        }
+
+        /* වම් පස ඇති Web App එක */
+        .container {
+            flex: 1; /* ඉතිරි ඉඩ ප්‍රමාණය සම්පූර්ණයෙන් ගනී */
+            height: 100vh;
+        }
+
+        iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+        }
+
+        /* දකුණු පස ඇති පින්තූරය */
+        .side-image {
+            width: 300px; /* පින්තූරයේ පළල ඔබට අවශ්‍ය පරිදි වෙනස් කරන්න */
+            height: 100vh;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-left: 2px solid #ddd;
+        }
+
+        .side-image img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Mobile දුරකථන වලදී පින්තූරය සැඟවීමට (ඉඩ මදි නිසා) */
+        @media (max-width: 768px) {
+            .side-image { display: none; }
+        }
     </style>
 </head>
 <body>
-    <iframe src="https://script.google.com/macros/s/AKfycbwcWlsSZ0rHnVbOPq6RUnDl_FGNihr_6Y7aZw-M12VxQQq8sDtzEnuFso0DvosnqPO4/exec"></iframe>
+
+    <div class="container">
+        <iframe src="https://script.google.com/macros/s/AKfycbwcWlsSZ0rHnVbOPq6RUnDl_FGNihr_6Y7aZw-M12VxQQq8sDtzEnuFso0DvosnqPO4/exec"></iframe>
+    </div>
+
+    <div class="side-image">
+        <img src="https://raw.githubusercontent.com/akalanka929-eng/pay-summary-repo/main/Gemini_Generated_Image_3zfsc13zfsc13zfs.png" alt="Side Image">
+    </div>
+
 </body>
 </html>
