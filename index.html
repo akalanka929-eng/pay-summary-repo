@@ -1,16 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="si">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ElitePay</title>
     
     <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/akalanka929-eng/pay-summary-repo/main/Def%2006.ico">
     
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
-        iframe { width: 100%; height: 100vh; border: none; }
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            height: 100%; 
+            width: 100%;
+            background-color: #121212; /* Dark Mode Background */
+            overflow: hidden; 
+            font-family: Arial, sans-serif;
+        }
+
+        /* Splash Screen (පින්තූරය පෙන්වන කොටස) */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #121212;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999; /* මෙය සැමවිටම ඉහළින් තිබිය යුතුය */
+            transition: opacity 0.5s ease-out; /* මැකී යන animation එකක් සඳහා */
+        }
+
+        #splash-screen img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            filter: drop-shadow(0px 0px 20px rgba(255,255,255,0.1));
+        }
+
+        /* Web App එක පෙන්වන කොටස */
+        #app-container {
+            width: 100%;
+            height: 100vh;
+            display: none; /* ආරම්භයේදී සඟවා තබයි */
+        }
+
+        iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: none;
+        }
     </style>
 </head>
 <body>
-    <iframe src="https://script.google.com/macros/s/AKfycbwcWlsSZ0rHnVbOPq6RUnDl_FGNihr_6Y7aZw-M12VxQQq8sDtzEnuFso0DvosnqPO4/exec"></iframe>
+
+    <div id="splash-screen">
+        <img src="https://raw.githubusercontent.com/akalanka929-eng/pay-summary-repo/main/Untitled%20design%20(2).png" alt="Loading Logo">
+    </div>
+
+    <div id="app-container">
+        <iframe src="https://script.google.com/macros/s/AKfycbwcWlsSZ0rHnVbOPq6RUnDl_FGNihr_6Y7aZw-M12VxQQq8sDtzEnuFso0DvosnqPO4/exec"></iframe>
+    </div>
+
+    <script>
+        // තත්පර 2කට (2000ms) පසු ක්‍රියාත්මක වේ
+        setTimeout(function() {
+            var splash = document.getElementById('splash-screen');
+            var app = document.getElementById('app-container');
+
+            // පින්තූරය මැකී යන ලෙස පෙන්වීමට (Fade out)
+            splash.style.opacity = '0';
+
+            // Animation එක අවසන් වූ පසු පින්තූරය ඉවත් කර App එක පෙන්වීම
+            setTimeout(function() {
+                splash.style.display = 'none';
+                app.style.display = 'block';
+            }, 500); // 0.5s fade out කාලය
+
+        }, 2000); // තත්පර 2ක කාලය
+    </script>
+
 </body>
 </html>
