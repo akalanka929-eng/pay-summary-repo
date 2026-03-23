@@ -13,11 +13,12 @@
             padding: 0; 
             height: 100%; 
             width: 100%;
-            background-color: #121212; 
+            background-color: #121212; /* Dark Mode Background */
             overflow: hidden; 
             font-family: Arial, sans-serif;
         }
 
+        /* Splash Screen (පින්තූරය පෙන්වන කොටස) */
         #splash-screen {
             position: fixed;
             top: 0;
@@ -28,22 +29,22 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease-out;
+            z-index: 9999; /* මෙය සැමවිටම ඉහළින් තිබිය යුතුය */
+            transition: opacity 0.5s ease-out; /* මැකී යන animation එකක් සඳහා */
         }
 
         #splash-screen img {
             max-width: 80%;
             max-height: 80%;
             object-fit: contain;
-            /* පින්තූරය පැහැදිලිව පෙනීමට shadow එකක් */
-            filter: drop-shadow(0px 0px 20px rgba(255,255,255,0.2));
+            filter: drop-shadow(0px 0px 20px rgba(255,255,255,0.1));
         }
 
+        /* Web App එක පෙන්වන කොටස */
         #app-container {
             width: 100%;
             height: 100vh;
-            display: none;
+            display: none; /* ආරම්භයේදී සඟවා තබයි */
         }
 
         iframe { 
@@ -64,21 +65,21 @@
     </div>
 
     <script>
-        window.onload = function() {
-            // තත්පර 3කට පසු Splash screen එක ඉවත් කිරීම
+        // තත්පර 2කට (2000ms) පසු ක්‍රියාත්මක වේ
+        setTimeout(function() {
+            var splash = document.getElementById('splash-screen');
+            var app = document.getElementById('app-container');
+
+            // පින්තූරය මැකී යන ලෙස පෙන්වීමට (Fade out)
+            splash.style.opacity = '0';
+
+            // Animation එක අවසන් වූ පසු පින්තූරය ඉවත් කර App එක පෙන්වීම
             setTimeout(function() {
-                var splash = document.getElementById('splash-screen');
-                var app = document.getElementById('app-container');
+                splash.style.display = 'none';
+                app.style.display = 'block';
+            }, 500); // 0.5s fade out කාලය
 
-                splash.style.opacity = '0';
-
-                setTimeout(function() {
-                    splash.style.display = 'none';
-                    app.style.display = 'block';
-                }, 500);
-
-            }, 2000); 
-        };
+        }, 3000); // තත්පර 3ක කාලය
     </script>
 
 </body>
