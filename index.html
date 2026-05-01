@@ -13,7 +13,7 @@
             padding: 0; 
             height: 100%; 
             width: 100%;
-            background-color: #121212; /* Dark Mode Background */
+            background-color: #121212; 
             overflow: hidden; 
             font-family: Arial, sans-serif;
         }
@@ -33,33 +33,33 @@
             transition: opacity 0.5s ease-out;
         }
 
-        /* විශාල කරන ලද වෘත්තාකාර රාමුව */
+        /* වෘත්තාකාර රාමුව */
         .circle-frame {
-            width: 850px;      /* පෙර 280 -> 350 දක්වා විශාල කර ඇත */
-            height: 850px;     /* සමාන උසක් */
-            border-radius: 50%; /* සම්පූර්ණ වෘත්තයක් */
-            overflow: hidden;   /* රාමුවෙන් පිටත කොටස් සඟවයි */
+            width: 80vw; /* තිරයේ පළල අනුව වෙනස් වේ */
+            height: 80vw;
+            max-width: 500px; /* උපරිම විශාලත්වය */
+            max-height: 500px;
+            border-radius: 50%; 
+            overflow: hidden;   
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #1e1e2f; /* රාමුවේ පසුබිම */
-            box-shadow: 0px 0px 40px rgba(255, 255, 255, 0.25); /* දීප්තිය තරමක් වැඩි කර ඇත */
-            border: 4px solid rgba(255, 255, 255, 0.2); /* මායිම තරමක් ඝන කර ඇත */
+            background-color: #1e1e2f; 
+            box-shadow: 0px 0px 40px rgba(255, 255, 255, 0.25); 
+            border: 4px solid rgba(255, 255, 255, 0.2); 
         }
 
-        /* රූපය වෘත්තයට සරිලන ලෙස සකසන්න */
         .circle-frame img {
             width: 100%;
             height: 100%;
-            object-fit: cover;  /* GIF එක රාමුව පුරා වටවීමට */
-            display: block;
+            object-fit: cover; 
         }
 
-        /* Web App එක පෙන්වන කොටස */
+        /* Web App Container */
         #app-container {
             width: 100%;
             height: 100vh;
-            display: none; /* ආරම්භයේදී සඟවා තබයි */
+            display: none; 
         }
 
         iframe { 
@@ -72,7 +72,10 @@
 <body>
 
     <div id="splash-screen">
-        <img src="https://raw.githubusercontent.com/akalanka929-eng/iresha-akalanka/main/SL%20Gif%202.gif" alt="Loading Logo">
+        <!-- මෙහි circle-frame div එක එකතු කරන ලදී -->
+        <div class="circle-frame">
+            <img src="https://raw.githubusercontent.com/akalanka929-eng/iresha-akalanka/main/SL%20Gif%202.gif" alt="Loading Logo">
+        </div>
     </div>
 
     <div id="app-container">
@@ -80,21 +83,19 @@
     </div>
 
     <script>
-        // තත්පර 2කට (2000ms) පසු ක්‍රියාත්මක වේ
+        // තත්පර 3කට පසු Splash screen එක ඉවත් කිරීම
         setTimeout(function() {
             var splash = document.getElementById('splash-screen');
             var app = document.getElementById('app-container');
 
-            // පින්තූරය මැකී යන ලෙස පෙන්වීමට (Fade out)
             splash.style.opacity = '0';
 
-            // Animation එක අවසන් වූ පසු පින්තූරය ඉවත් කර App එක පෙන්වීම
             setTimeout(function() {
                 splash.style.display = 'none';
                 app.style.display = 'block';
-            }, 500); // 0.5s fade out කාලය
+            }, 500); 
 
-        }, 6000); // තත්පර 3ක කාලය
+        }, 3000); // ඔබට අවශ්‍ය කාලය මෙතැනින් වෙනස් කරන්න (3000ms = තත්පර 3)
     </script>
 
 </body>
